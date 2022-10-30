@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run main.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: python get_binance_data.py
+        run: python get_crypto_data.py
           
       - name: commit files
         run: |
