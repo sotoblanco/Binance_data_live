@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     if not os.path.isfile('BTCUSDT_historical_1h.parquet'):
         print ("File not exist")
-        start_time = dt.datetime(1970, 1, 1)
+        start_time = dt.datetime(2019, 1, 1)
         btc_historical = pd.DataFrame()
 
     else:
