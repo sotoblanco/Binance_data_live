@@ -79,7 +79,8 @@ if __name__ == "__main__":
     else:
         print ("File exist")
         # read the data previously store in your directory
-        btc_historical = pd.read_csv("data/BTCUSDT_historical_1h.csv", index_col='Unnamed 0', parse_dates=True)
+        btc_historical = pd.read_csv("data/BTCUSDT_historical_1h.csv",
+                             index_col="Unnamed: 0", parse_dates=True)
         # get the last index value
         start_time = btc_historical.index[-1]
     try:
