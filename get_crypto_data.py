@@ -69,7 +69,7 @@ logger.addHandler(logger_file_handler)
 
 if __name__ == "__main__":
 
-    if not os.path.isfile('BTCUSDT_historical_1h.parquet'):
+    if not os.path.isfile('data/BTCUSDT_historical_1h.csv'):
         print ("File not exist")
         start_time = dt.datetime(1970, 1, 1)
         btc_historical = pd.DataFrame()
@@ -77,12 +77,12 @@ if __name__ == "__main__":
     else:
         print ("File exist")
         # read the data previously store in your directory
-        btc_historical = pd.read_parquet("BTCUSDT_historical_1h.parquet")
+        btc_historical = pd.read_csv("data/BTCUSDT_historical_1h.csv", index_col='Unnamed 0', parse_dates=True)
         # get the last index value
         start_time = btc_historical.index[-1]
     try:
         full_btc_data = get_latest_update(btc_historical)
-        full_btc_data.to_parquet("BTCUSDT_historical_1h.parquet")
+        full_btc_data.to_csv("data/BTCUSDT_historical_1h.csv")
 
         logger.info(f'Last data at: {full_btc_data.index[-1]} UTC Time')
     except:
