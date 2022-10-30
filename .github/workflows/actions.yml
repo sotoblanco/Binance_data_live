@@ -2,7 +2,7 @@ name: run get_crypto_data.py
 
 on:
   schedule:
-    - cron: '0 11 * * 0-6'  # At minute 30 past every hour from 13 (6 PST) through 23 (16 PST) on every day-of-week from Sunday through Friday.
+    - cron: '0 * * * *'  # At minute 30 past every hour from 13 (6 PST) through 23 (16 PST) on every day-of-week from Sunday through Friday.
 
 jobs:
   build:
