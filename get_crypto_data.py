@@ -50,7 +50,9 @@ def get_latest_update(btc_historical):
         last_datetime = max(new_df.index) + dt.timedelta(0, 1)
         print(last_datetime)
 
-    df = pd.concat([btc_historical, df_list])
+    df_new = pd.concat(df_list)
+
+    df = pd.concat([btc_historical, df_new])
 
     return df
 
