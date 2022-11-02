@@ -85,6 +85,8 @@ if __name__ == "__main__":
         start_time = btc_historical.index[-1]
     try:
         full_btc_data = get_latest_update(btc_historical)
+        full_btc_data.sort_index(inplace=True)
+        full_btc_data = full_btc_data[~full_btc_data.index.duplicated(keep='last')]
         full_btc_data.to_csv("data/BTCUSDT_historical_1h.csv")
 
         logger.info(f'Last data at: {full_btc_data.index[-1]} UTC Time')
